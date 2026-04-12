@@ -1,13 +1,15 @@
-fromfastapiimportFastAPI
-importtime
+from fastapi import FastAPI
+import time
 
-app=FastAPI()
+app = FastAPI()
+
 
 @app.get("/hello")
-defhello():
-return {"message":"hello"}
+def hello():
+    return {"message": "hello"}
+
 
 @app.get("/slow")
-defslow():
-time.sleep(2)
-return {"message":"slow"}
+def slow():
+    time.sleep(2)
+    return {"message": "slow"}
