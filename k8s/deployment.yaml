@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rookie-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rookie
+  template:
+    metadata:
+      labels:
+        app: rookie
+    spec:
+      containers:
+        - name: app
+          image: maasj/rookie-fastapi:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "500m"
